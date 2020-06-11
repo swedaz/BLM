@@ -13,6 +13,8 @@
 		DCA0D3442491615B00CF4A2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA0D3422491615B00CF4A2D /* Main.storyboard */; };
 		DCA0D3462491615C00CF4A2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA0D3452491615C00CF4A2D /* Assets.xcassets */; };
 		DCA0D3502491683D00CF4A2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA0D3472491615C00CF4A2D /* LaunchScreen.storyboard */; };
+		DCA0D352249172A700CF4A2D /* fist.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA0D351249172A700CF4A2D /* fist.png */; };
+		DCA0D3552491D2EB00CF4A2D /* ViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0D3542491D2EB00CF4A2D /* ViewTwo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		DCA0D3452491615C00CF4A2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCA0D3482491615C00CF4A2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCA0D34A2491615C00CF4A2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA0D351249172A700CF4A2D /* fist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fist.png; sourceTree = "<group>"; };
+		DCA0D3542491D2EB00CF4A2D /* ViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTwo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			children = (
 				DCA0D33B2491615B00CF4A2D /* BlackLivesMatter */,
 				DCA0D33A2491615B00CF4A2D /* Products */,
+				DCA0D353249172EB00CF4A2D /* Images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +64,21 @@
 				DCA0D33C2491615B00CF4A2D /* AppDelegate.swift */,
 				DCA0D33E2491615B00CF4A2D /* SceneDelegate.swift */,
 				DCA0D3402491615B00CF4A2D /* ViewController.swift */,
+				DCA0D3542491D2EB00CF4A2D /* ViewTwo.swift */,
 				DCA0D3422491615B00CF4A2D /* Main.storyboard */,
 				DCA0D3452491615C00CF4A2D /* Assets.xcassets */,
 				DCA0D3472491615C00CF4A2D /* LaunchScreen.storyboard */,
 				DCA0D34A2491615C00CF4A2D /* Info.plist */,
 			);
 			path = BlackLivesMatter;
+			sourceTree = "<group>";
+		};
+		DCA0D353249172EB00CF4A2D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DCA0D351249172A700CF4A2D /* fist.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA0D3502491683D00CF4A2D /* LaunchScreen.storyboard in Resources */,
+				DCA0D352249172A700CF4A2D /* fist.png in Resources */,
 				DCA0D3462491615C00CF4A2D /* Assets.xcassets in Resources */,
 				DCA0D3442491615B00CF4A2D /* Main.storyboard in Resources */,
 			);
@@ -139,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA0D3412491615B00CF4A2D /* ViewController.swift in Sources */,
+				DCA0D3552491D2EB00CF4A2D /* ViewTwo.swift in Sources */,
 				DCA0D33D2491615B00CF4A2D /* AppDelegate.swift in Sources */,
 				DCA0D33F2491615B00CF4A2D /* SceneDelegate.swift in Sources */,
 			);
