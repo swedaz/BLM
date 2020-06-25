@@ -15,5 +15,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func startApp() {
+        let vc = storyboard?.instantiateViewController(identifier: "LoggedInViewController") as! LoggedInVC
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
 }
 
