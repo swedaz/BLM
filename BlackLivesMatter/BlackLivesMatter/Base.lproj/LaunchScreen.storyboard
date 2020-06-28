@@ -19,7 +19,7 @@
                                 <rect key="frame" x="55" y="503" width="304" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="BLACK LIVES MATTER">
+                                    <fragment content="NuRepublica">
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="24" name="Verdana-Bold"/>

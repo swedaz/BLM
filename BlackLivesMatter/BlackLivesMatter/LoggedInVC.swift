@@ -26,17 +26,23 @@ class LoggedInVC: UIViewController {
         self.present(alertView, animated: true, completion:nil)
     }
     
+    func loadHome(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homepageVC = storyBoard.instantiateViewController(withIdentifier: "homepage") as! HomepageViewController
+        self.present(homepageVC, animated: true, completion: nil)
+    }
+    
     @IBAction func signIn(_ sender: Any) {
         let sv = UIViewController.displaySpinner(onView: self.view)
         PFUser.logInWithUsername(inBackground: username.text!, password: password.text!) { (user, error) in
             UIViewController.removeSpinner(spinner: sv)
             if user != nil {
-                self.loadSurvey()
+                self.loadHome()
             }else{
                 if let descrip = error?.localizedDescription{
                     self.displayErrorMessage(message: (descrip))
                 }
-            }
+            } 
         }
     }
     
@@ -65,7 +71,7 @@ class LoggedInVC: UIViewController {
     
     func loadSurvey(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let surveyVC = storyBoard.instantiateViewController(withIdentifier: "Survey") as! SurveyViewController
+        let surveyVC = storyBoard.instantiateViewController(withIdentifier: "SurveyIntro") as! ViewController
         self.present(surveyVC, animated: true, completion: nil)
     }
     
@@ -74,6 +80,8 @@ class LoggedInVC: UIViewController {
         if currentUser != nil {
             loadSurvey()
     }
+        
+
 
 }
 

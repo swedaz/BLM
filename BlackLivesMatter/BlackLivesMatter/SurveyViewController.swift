@@ -8,123 +8,79 @@
 
 import Foundation
 import UIKit
+import Parse
 
-class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var yes: Int = 0
-    var surveyModel = [Question]()
-    var currentQuestion: Question?
+class SurveyViewController: UIViewController {
     
-    @IBOutlet var label: UILabel!
-    @IBOutlet var table: UITableView!
+    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var YesButton: UIButton!
+    @IBOutlet weak var NoButton: UIButton!
+    @IBOutlet weak var ProgressTracker: UIPageControl!
+    
+    var questionNum = 0
+    var Over18 = true
+    var registered = true
+    var voted = true
+    var knowMayor = true
+    let questions = ["Are you 18+?", "Are you registered to vote?", "Have you voted before?", "Do you know who the mayor of Atlanta is?"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        table.delegate = self
-        table.dataSource = self
-        setUpQuestions()
-        configureUI(question: surveyModel.first!)
     }
     
-    private func configureUI(question: Question) {
-        label.text = question.text
-        currentQuestion = question
-        table.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        Questions()
     }
     
-    private func checkAnswer(answer: Answer, question: Question) -> Bool {
-        if (question.answers.contains(where: { $0.text == answer.text}) && answer.yes) {
-            return true
-        }
-        return false
-    }
-    
-    private func setUpQuestions() {
-        surveyModel.append(Question(text: "Are you 18+?", answers: [
-            Answer(text: "Yes", yes: true),
-            Answer(text: "No", yes: false)
-        ]))
-        
-        surveyModel.append(Question(text: "Are you registered to vote?", answers: [
-            Answer(text: "Yes", yes: true),
-            Answer(text: "No", yes: false)
-        ]))
-        
-        surveyModel.append(Question(text: "Have you voted before?", answers: [
-            Answer(text: "Yes", yes: true),
-            Answer(text: "No", yes: false)
-        ]))
-        
-        surveyModel.append(Question(text: "Are you a student?", answers: [
-            Answer(text: "Yes", yes: true),
-            Answer(text: "No", yes: false)
-        ]))
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentQuestion?.answers.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = currentQuestion?.answers[indexPath.row].text
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard let question = currentQuestion else {
-            return
-        }
-        
-        let answer = question.answers[indexPath.row]
-        
-        if checkAnswer(answer: answer, question: question) {
-            //correct (yes)
-            
-            if let index = surveyModel.firstIndex(where: { $0.text == question.text }) {
-                if index < (surveyModel.count - 1) {
-                    self.yes = yes + 1
-                    print(yes)
-                    //next question
-                    let nextQuestion = surveyModel[index + 1]
-                    currentQuestion = nil
-                    configureUI(question: nextQuestion)
-                } else {
-                    //end of the survey
-                    let vc = storyboard?.instantiateViewController(identifier: "homepage") as! HomepageViewController
-                    vc.modalPresentationStyle = .fullScreen
-                    present(vc, animated: true)
-                }
+    @IBAction func YesButtonAction(_ sender: Any) {
+        if (questionNum != questions.count) {
+            questionNum += 1
+            if (questionNum == 4) {
+                loadHome()
             }
-        } else {
-            //wrong (no)
-            if let index = surveyModel.firstIndex(where: { $0.text == question.text }) {
-                if index < (surveyModel.count - 1) {
-                    self.yes = yes - 1
-                    print(yes)
-                    //next question
-                    let nextQuestion = surveyModel[index + 1]
-                    currentQuestion = nil
-                    configureUI(question: nextQuestion)
-                } else {
-                    //end of the game
-                    let vc = storyboard?.instantiateViewController(identifier: "homepage") as! HomepageViewController
-                    vc.modalPresentationStyle = .fullScreen
-                    present(vc, animated: true)
-                }
+            else{
+               Questions()
+            }
+        }
+        if (questionNum == 4) {
+            loadHome()
         }
     }
- }
+    
+    @IBAction func NoButtonAction(_ sender: Any) {
+        if (questionNum == 0) {
+            Over18 = false
+        }
+        if (questionNum == 1) {
+            registered = false
+        }
+        if (questionNum == 2) {
+            voted = false
+        }
+        if (questionNum == 3) {
+            knowMayor = false
+        }
+        if (questionNum != questions.count) {
+            questionNum += 1
+            if (questionNum == 4) {
+                loadHome()
+            }
+            else{
+               Questions()
+            }
+        }
 
-struct Question {
-    let text: String
-    let answers: [Answer]
-}
-
-struct Answer {
-    let text: String
-    let yes: Bool
-}
-
+    }
+    
+    func Questions() {
+        label.text = questions[questionNum]
+    }
+    
+    func loadHome(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homepageVC = storyBoard.instantiateViewController(withIdentifier: "homepage") as! HomepageViewController
+        self.present(homepageVC, animated: true, completion: nil)
+    }
 }

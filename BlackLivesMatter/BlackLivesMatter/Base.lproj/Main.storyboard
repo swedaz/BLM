@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GG3-U0-D7d">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BlackLivesMatter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurveyIntro" id="BYZ-38-t0r" customClass="ViewController" customModule="BlackLivesMatter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,8 +60,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9F-6f-o9Y">
-                                <rect key="frame" x="10" y="54" width="394" height="250"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8t-V9-tlF">
+                                <rect key="frame" x="10" y="553" width="394" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="34"/>
+                                <state key="normal" title="Yes">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="YesButtonAction:" destination="rF1-3A-gZg" eventType="touchUpInside" id="1a2-qJ-SXD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBc-C3-wRx">
+                                <rect key="frame" x="10" y="615" width="394" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="34"/>
+                                <state key="normal" title="No">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="NoButtonAction:" destination="rF1-3A-gZg" eventType="touchUpInside" id="WyI-m0-CDs"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QZk-jI-Tu8">
+                                <rect key="frame" x="104" y="667" width="206" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9F-6f-o9Y">
+                                <rect key="frame" x="10" y="231" width="394" height="289"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="ztD-WO-rZc"/>
                                 </constraints>
@@ -69,36 +98,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d8N-bK-PaC">
-                                <rect key="frame" x="0.0" y="304" width="414" height="611"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Sqw-J4-npG">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sqw-J4-npG" id="exa-8B-DoF">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.29294985074518126" green="0.77312859763615183" blue="0.78683988510635849" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="g9F-6f-o9Y" firstAttribute="leading" secondItem="9V2-nV-kjk" secondAttribute="leading" constant="10" id="PGv-yA-OlT"/>
                             <constraint firstItem="g9F-6f-o9Y" firstAttribute="top" secondItem="9V2-nV-kjk" secondAttribute="top" constant="10" id="T6N-h5-3cs"/>
-                            <constraint firstItem="9V2-nV-kjk" firstAttribute="trailing" secondItem="d8N-bK-PaC" secondAttribute="trailing" id="U1K-zT-TEP"/>
                             <constraint firstItem="9V2-nV-kjk" firstAttribute="trailing" secondItem="g9F-6f-o9Y" secondAttribute="trailing" constant="10" id="U8w-f1-rp0"/>
-                            <constraint firstItem="9V2-nV-kjk" firstAttribute="bottom" secondItem="d8N-bK-PaC" secondAttribute="bottom" id="pjk-vi-M5k"/>
-                            <constraint firstItem="d8N-bK-PaC" firstAttribute="leading" secondItem="9V2-nV-kjk" secondAttribute="leading" id="uSR-zq-Krj"/>
-                            <constraint firstItem="d8N-bK-PaC" firstAttribute="top" secondItem="g9F-6f-o9Y" secondAttribute="bottom" id="zO2-Tj-kKo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9V2-nV-kjk"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="g9F-6f-o9Y" id="gB1-IH-x0v"/>
-                        <outlet property="table" destination="d8N-bK-PaC" id="tIU-lj-3CQ"/>
+                        <outlet property="NoButton" destination="yBc-C3-wRx" id="QOo-s9-Bfy"/>
+                        <outlet property="ProgressTracker" destination="QZk-jI-Tu8" id="j6Z-Ng-yQa"/>
+                        <outlet property="YesButton" destination="D8t-V9-tlF" id="h2p-7k-lFT"/>
+                        <outlet property="label" destination="g9F-6f-o9Y" id="Hb2-Sz-uNG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fv9-Za-oe4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

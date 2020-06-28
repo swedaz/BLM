@@ -41,18 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }
-        let soccerPlayers = PFObject(className:"SoccerPlayers")
-        soccerPlayers["playerName"] = "A. Wed"
-        soccerPlayers["yearOfBirth"] = 1997
-        soccerPlayers["emailContact"] = "a.wed@email.io"
-        soccerPlayers.saveInBackground {
-          (success: Bool, error: Error?) in
-          if (success) {
-            // The object has been saved.
-          } else {
-            // There was a problem, check error.description
-          }
-        }
+        
         
         //let query = PFQuery(className:"SoccerPlayers")
         //query.getObjectInBackground(withId: "k7uKu7WHoE") { (object: PFObject?, error: Error?) in

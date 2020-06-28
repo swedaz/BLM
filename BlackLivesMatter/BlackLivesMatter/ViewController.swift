@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startApp() {
-        let vc = storyboard?.instantiateViewController(identifier: "LoggedInViewController") as! LoggedInVC
+        let vc = storyboard?.instantiateViewController(identifier: "Survey") as! SurveyViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
