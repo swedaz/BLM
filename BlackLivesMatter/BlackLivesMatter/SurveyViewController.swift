@@ -23,11 +23,15 @@ class SurveyViewController: UIViewController {
     var registered = true
     var voted = true
     var knowMayor = true
-    let questions = ["Are you 18+?", "Are you registered to vote?", "Have you voted before?", "Do you know who the mayor of Atlanta is?"]
+    var currentUser = PFUser()
+    let questions = ["Do you know who the mayor of Atlanta is?","Are you 18+?", "Are you registered to vote?", "Have you voted before?"]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let user = PFUser.current() {
+            currentUser = user
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,34 +42,40 @@ class SurveyViewController: UIViewController {
         if (questionNum != questions.count) {
             questionNum += 1
             if (questionNum == 4) {
-                loadHome()
+                loadInterests()
+                updateSurvey()
             }
             else{
                Questions()
             }
         }
         if (questionNum == 4) {
-            loadHome()
+            loadInterests()
+            updateSurvey()
         }
     }
     
     @IBAction func NoButtonAction(_ sender: Any) {
         if (questionNum == 0) {
-            Over18 = false
+            knowMayor = false
+            print(knowMayor)
         }
         if (questionNum == 1) {
-            registered = false
+            Over18 = false
+            loadInterests()
+            updateSurvey()
         }
         if (questionNum == 2) {
-            voted = false
+            registered = false
         }
         if (questionNum == 3) {
-            knowMayor = false
+            voted = false
         }
         if (questionNum != questions.count) {
             questionNum += 1
             if (questionNum == 4) {
-                loadHome()
+                loadInterests()
+                updateSurvey()
             }
             else{
                Questions()
@@ -78,9 +88,23 @@ class SurveyViewController: UIViewController {
         label.text = questions[questionNum]
     }
     
-    func loadHome(){
+    func updateSurvey() {
+        if let currentUser = PFUser.current() {
+            currentUser["Over18"] = Over18
+            currentUser["registered"] = registered
+            currentUser["voted"] = voted
+            currentUser["knowMayor"] = knowMayor
+            currentUser.saveInBackground { (success, error) in
+                if error == nil {
+                    print("Success: Update user survey responses")
+                }
+            }
+        }
+    }
+    
+    func loadInterests(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homepageVC = storyBoard.instantiateViewController(withIdentifier: "homepage") as! HomepageViewController
+        let homepageVC = storyBoard.instantiateViewController(withIdentifier: "Interests") as! InterestsViewController
         self.present(homepageVC, animated: true, completion: nil)
     }
 }

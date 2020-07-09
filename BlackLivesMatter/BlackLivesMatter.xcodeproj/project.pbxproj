@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC4F76DE24B6686C009473FA /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F76DD24B6686C009473FA /* InterestsViewController.swift */; };
 		DCA0D33D2491615B00CF4A2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0D33C2491615B00CF4A2D /* AppDelegate.swift */; };
 		DCA0D33F2491615B00CF4A2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0D33E2491615B00CF4A2D /* SceneDelegate.swift */; };
 		DCA0D3412491615B00CF4A2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0D3402491615B00CF4A2D /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		006F270CC57745B1295ED117 /* Pods-BlackLivesMatter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackLivesMatter.debug.xcconfig"; path = "Target Support Files/Pods-BlackLivesMatter/Pods-BlackLivesMatter.debug.xcconfig"; sourceTree = "<group>"; };
 		0D9485BDEEF7889F8C7F95A6 /* Pods-BlackLivesMatter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackLivesMatter.release.xcconfig"; path = "Target Support Files/Pods-BlackLivesMatter/Pods-BlackLivesMatter.release.xcconfig"; sourceTree = "<group>"; };
 		89A33B3B84B5431443621250 /* Pods_BlackLivesMatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackLivesMatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC4F76DD24B6686C009473FA /* InterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		DCA0D3392491615B00CF4A2D /* BlackLivesMatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackLivesMatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA0D33C2491615B00CF4A2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA0D33E2491615B00CF4A2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				DCA0D35A2494686A00CF4A2D /* HomepageViewController.swift */,
 				DCA0D35C24A3C2B300CF4A2D /* LoggedInVC.swift */,
 				DCA0D35E24A3D83B00CF4A2D /* Extensions.swift */,
+				DC4F76DD24B6686C009473FA /* InterestsViewController.swift */,
 			);
 			path = BlackLivesMatter;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4F76DE24B6686C009473FA /* InterestsViewController.swift in Sources */,
 				DCA0D3412491615B00CF4A2D /* ViewController.swift in Sources */,
 				DCA0D33D2491615B00CF4A2D /* AppDelegate.swift in Sources */,
 				DCA0D3592493FFEB00CF4A2D /* SurveyViewController.swift in Sources */,
